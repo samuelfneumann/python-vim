@@ -106,8 +106,8 @@ endif
     syn match pythonExtraPseudoOperator "\%(-=\|/=\|\*\*=\|\*=\|&&=\|&=\|&&\|||=\||=\|||\|%=\|+=\|!\~\|!=\)"
 
 	if !g:pymode_syntax_exit_as_function
-        syn keyword pythonStatement exit
-    endif
+		syn keyword pythonStatement exit
+	endif
 
     if !g:pymode_syntax_print_as_function
         syn keyword pythonStatement print
@@ -301,9 +301,9 @@ endif
         syn keyword pythonBuiltinFunc   repr reversed round setattr
         syn keyword pythonBuiltinFunc   slice sorted staticmethod sum vars zip
 
-		if g:pymode_syntax_exit_as_function
-            syn keyword pythonBuiltinFunc   exit
-        endif
+		" if g:pymode_syntax_exit_as_function
+        "     syn keyword pythonBuiltinFunc   exit
+        " endif
 
         if g:pymode_syntax_print_as_function
             syn keyword pythonBuiltinFunc   print
