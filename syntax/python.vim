@@ -14,6 +14,9 @@ endif
 " Highlight all by default
 call pymode#default('g:pymode_syntax_all', 1)
 
+" Highlight 'exit' as function
+call pymode#default("g:pymode_syntax_exit_as_function", 0)
+
 " Highlight 'print' as function
 call pymode#default("g:pymode_syntax_print_as_function", 0)
 "
@@ -101,6 +104,10 @@ endif
 
     syn match pythonExtraOperator "\%([~!^&|/%+-]\|\%(class\s*\)\@<!<<\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@<!>\|\.\.\.\|\.\.\|::\)"
     syn match pythonExtraPseudoOperator "\%(-=\|/=\|\*\*=\|\*=\|&&=\|&=\|&&\|||=\||=\|||\|%=\|+=\|!\~\|!=\)"
+
+	if !g:pymode_syntax_exit_as_function
+        syn keyword pythonStatement exit
+    endif
 
     if !g:pymode_syntax_print_as_function
         syn keyword pythonStatement print
@@ -293,6 +300,10 @@ endif
         syn keyword pythonBuiltinFunc   next oct open ord pow property range
         syn keyword pythonBuiltinFunc   repr reversed round setattr
         syn keyword pythonBuiltinFunc   slice sorted staticmethod sum vars zip
+
+		if g:pymode_syntax_exit_as_function
+            syn keyword pythonBuiltinFunc   exit
+        endif
 
         if g:pymode_syntax_print_as_function
             syn keyword pythonBuiltinFunc   print
